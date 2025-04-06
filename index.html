@@ -6,7 +6,7 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
 
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
+Alisha Spears
 
 Further Information:
 http://cns.utexas.edu/fri
@@ -16,7 +16,7 @@ Timothy Riedel
 triedel@utexas.edu
 
 Brief Description of Goal of Code:
-blah, blah, blah,
+The goal of this code is to create
 
 Known Issues:
 blah, blah, blah, blah
@@ -106,13 +106,14 @@ button {
       ctx.fillText("Alisha May Spears", 60, 200); // 
     }
 
-    function loadImage() {
-      const img = new Image();
-      img.onload = function() {
-        ctx.drawImage(img, 100, 100, 100, 100);
-      };
-      img.src = "https://via.placeholder.com/100"; // Replace with any image URL you prefer
-    }
+   function loadImage() {
+  const img = new Image();
+  img.crossOrigin = "anonymous"; // helps with CORS
+  img.onload = function() {
+    ctx.drawImage(img, 100, 100, 100, 100);
+  };
+  img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/June_odd-eyed-cat.jpg/320px-June_odd-eyed-cat.jpg";
+}
 
     function clearCanvas() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
