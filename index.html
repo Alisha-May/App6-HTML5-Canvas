@@ -1,24 +1,23 @@
 <!DOCTYPE html> 
 <html> 
 <!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
- 
+
 THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
- 
- 
+
 Authors in chronological order of contribution:
 Tim Riedel
 Author 2
- 
+
 Further Information:
 http://cns.utexas.edu/fri
- 
+
 Research Educator:
 Timothy Riedel
 triedel@utexas.edu
- 
+
 Brief Description of Goal of Code:
 blah, blah, blah,
- 
+
 Known Issues:
 blah, blah, blah, blah
 https://www.w3schools.com/w3css/default.asp
@@ -33,14 +32,11 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <link rel="stylesheet" href="w3-colors-flat.css">
    </head> 
 
-
 <script>
-var docMod = document.lastModified; // loads last modified time stamp into docMod variable
-alert("This file last modified " + docMod); // generates alert box with time stamp. If annoying, comment out this entire line.
-console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
+var docMod = document.lastModified;
+alert("This file last modified " + docMod);
+console.log("This file last modified " + docMod);
 </script>
-
-
 
 <style>	
 .body {
@@ -56,9 +52,22 @@ console.log("This file last modified " + docMod); // generates message in javaSc
     z-index: 0;
     background-color: hsl(0,0%,100%);
 }
-  .page:target {
+.page:target {
     left: 0vw;
     z-index: 1;
+}
+canvas {
+    border: 2px solid black;
+    display: block;
+    margin: 1em auto;
+    max-width: 95vw;
+    height: auto;
+}
+button {
+    display: block;
+    margin: 0.5em auto;
+    padding: 1em;
+    font-size: 1em;
 }
 </style>
 
@@ -73,6 +82,43 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+
+  <!-- BEGIN: Canvas and Buttons -->
+  <canvas id="myCanvas" width="300" height="300"></canvas>
+
+  <button onclick="drawRectangle()">Draw Rectangle</button>
+  <button onclick="writeName()">Write My Name</button>
+  <button onclick="loadImage()">Load Image</button>
+  <button onclick="clearCanvas()">Clear Canvas</button>
+
+  <script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function drawRectangle() {
+      ctx.fillStyle = "blue";
+      ctx.fillRect(50, 50, 100, 75);
+    }
+
+    function writeName() {
+      ctx.font = "20px Arial";
+      ctx.fillStyle = "green";
+      ctx.fillText("Your Name", 60, 200); // Replace with your actual name
+    }
+
+    function loadImage() {
+      const img = new Image();
+      img.onload = function() {
+        ctx.drawImage(img, 100, 100, 100, 100);
+      };
+      img.src = "https://via.placeholder.com/100"; // Replace with any image URL you prefer
+    }
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  </script>
+  <!-- END: Canvas and Buttons -->
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
