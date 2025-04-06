@@ -56,6 +56,9 @@ console.log("This file last modified " + docMod);
     left: 0vw;
     z-index: 1;
 }
+	/* 
+	this part of code allows multiple pages
+	*/
 canvas {
     border: 2px solid black;
     display: block;
@@ -63,12 +66,18 @@ canvas {
     max-width: 95vw;
     height: auto;
 }
+	/* this section of code is stlying for my canvas. It creates a 2 pixel wide  solid black border
+	   makes the canvas act like a block element, creates margins, a max width, and auto height. 
+	*/
 button {
     display: block;
     margin: 0.5em auto;
     padding: 1em;
     font-size: 1em;
 }
+	/* this is the styling for all the buttons. Each button is a block element, 0.5em margins, 
+	   centered, has some padding space between outline and text, and a font size 1.0em.
+	*/
 </style>
 
 <body>
@@ -85,26 +94,39 @@ button {
 
   <!-- BEGIN: Canvas and Buttons -->
   <canvas id="myCanvas" width="300" height="300"></canvas>
-
+<!--
+	"Canvas" is the element used for drawing graphics. Giving the canvas an ID allows the code to interact and find it.
+	The width and height give the porportion of the canvas.
+-->
+	
   <button onclick="drawRectangle()">Draw Rectangle</button>
   <button onclick="writeName()">Write My Name</button>
   <button onclick="loadImage()">Load Image</button>
   <button onclick="clearCanvas()">Clear Canvas</button>
 
+<!--
+	This code here creates my four buttons. The draw rectangle button populates a rectangle in the canvas. The write name button will write my name
+	in the canvas. The load image button will place a photo of a cat in the image, and the clear canvas button will remove all elements from the canvas.
+-->
+
   <script>
     const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
-
+// This code here gets the canvas element and its 2D drawing context
+	  
     function drawRectangle() {
       ctx.fillStyle = "blue";
       ctx.fillRect(50, 50, 100, 75);
     }
+// this code here make the rectangle show up as blue, start at the coordinates (50,50) and have a width/height off 100/75.
+	
 
     function writeName() {
       ctx.font = "20px Arial";
       ctx.fillStyle = "green";
       ctx.fillText("Alisha May Spears", 60, 200); // 
     }
+// This is the function that writes my name on the canvas. It will show up as 20px arial font, green, and have x/y coordinates of 60/200
 
    function loadImage() {
   const img = new Image();
@@ -114,10 +136,11 @@ button {
   };
   img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/June_odd-eyed-cat.jpg/320px-June_odd-eyed-cat.jpg";
 }
-
+// Whenever a user presses the load image button, this function grabs the desired function. The draw image function literally draws the image. I sourced the cat from wikepedia. 100,100 are the x/y coordinates and 100,100 is the width/height.
     function clearCanvas() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
+	  // This is the function that adds the button.
   </script>
   <!-- END: Canvas and Buttons -->
 
